@@ -44,12 +44,6 @@ chrome.runtime.onMessage.addListener(
 
 
 
-
-
-
-
-
-
 //working get method @@@@@@@
 // $.ajax({
 //       type: 'GET',
@@ -57,12 +51,5 @@ chrome.runtime.onMessage.addListener(
 //       headers: {
 //         'X-Parse-Application-Id':'DQvjcrwLM1ctu4Wri3o3OEi5tLe8tvtqeCCU5egq',
 //         'X-Parse-REST-API-Key':'fDIml4hbYCWOj8B6v74ig7nNHqgESeGjB3XNXj3h',
-//       }, 
-
-//        success: function (msg) {
-//                console.log(msg);
-//             },
-//        error: function (errormessage) {
-//                 console.log(errormessage);
-//             }
+//       }
 //   });

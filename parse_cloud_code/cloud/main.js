@@ -1,19 +1,18 @@
 Parse.Cloud.afterSave("Text", function(request) {
   //network requests have to be made inside of cloud functions [node and cloud code]
 
-   var smsInfo = {
-          "src": "13305875722",
-          "dst": "15163189812",
-          "text": "hello from the cloud"
-        };
+console.log("\n \n" + request.object.get("text") + " = request");
 
-   $.ajax({
-        type: 'POST',
-        headers:{
-        "Content-Type": "application/json"
-        },
-        data: JSON.stringify(smsInfo),
-        url: "https://MAOTQ1OTI0NZNMMZUYNJ:YTE2ZWRiMzFlOWI5MmM5NjIzM2JkNWJhYjVmYjI5@api.plivo.com/v1/Account/MAOTQ1OTI0NZNMMZUYNJ/Message/",
-    });
+var selectedText = request.object.get("text");
+
+   Parse.Cloud.httpRequest({
+  method: "POST",
+  url: "https://ACb557922e1bb38ab5233c76d23df8a525:c4b9795ee9c63a342565d80d5f813cfd@api.twilio.com/2010-04-01/Accounts/ACb557922e1bb38ab5233c76d23df8a525/SMS/Messages.json",
+  body: {
+     From:"+15162462585",
+     To: "+15163189812",
+     Body: ". \n" + selectedText
+  }
+});
 
 });
