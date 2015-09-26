@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "bungie"
+    },
+    "bungie": {
+      "applicationId": "DQvjcrwLM1ctu4Wri3o3OEi5tLe8tvtqeCCU5egq"
+    }
+  }
+}
