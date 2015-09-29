@@ -26,7 +26,7 @@ Parse.Cloud.job("sendText", function(request, status) {
        }
     }).then(function(response){
 
-    	 if (typeof response.data === 'object') {
+    	 if (typeof response.data === 'object' && response.data.results.length >= 1) {
           var queryResults = response.data.results; 
 
 	          for (var i = 0; i < queryResults.length; i++) {
@@ -39,6 +39,16 @@ Parse.Cloud.job("sendText", function(request, status) {
 				    	currentResult.timeStamp = currentTime;
 				    	console.log(" \n \n currentTime = " + currentTime);
 				    	console.log(" \n \n currentResult = " + JSON.stringify(currentResult));
+
+				    	  Parse.Cloud.httpRequest({
+							  method: "POST",
+							  url: "https://ACb557922e1bb38ab5233c76d23df8a525:c4b9795ee9c63a342565d80d5f813cfd@api.twilio.com/2010-04-01/Accounts/ACb557922e1bb38ab5233c76d23df8a525/SMS/Messages.json",
+							  body: {
+							     From:"+15162462585",
+							     To: "+15163189812",
+							     Body: "-> \n" + currentResult.text
+							   }
+							});
 
 				    	Parse.Cloud.httpRequest({
 					  	  method: 'PUT',
