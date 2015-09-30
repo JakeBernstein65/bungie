@@ -9,7 +9,7 @@ To specifiy what information you want "bounced" back to you, select the text you
 `Windows/Linux:` Ctrl + Alt + A
 `Mac:` Command + Alt + A  
 
-![image of text selection](/README_images/selected?raw=true "Optional title")
+![image of text selection](./README_images/selected.png?raw=true "Selected Text")
 
 This application stores the shopping list on Parse's backend, and uses Parse **REST calls** to update the database. Pubnub's **publisher/subscriber model** is used to allow multiple people to subscribe to the same shopping list, and Parse's Cloud Code is used to update every user's local list after the database is updated. Pubnub's **Presence** feature makes it possible to use this realtime application offline and have updates passed on to Parse's backend on reconnection to your network.  
 
