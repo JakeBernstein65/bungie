@@ -12,8 +12,8 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+F",
-        "mac": "MacCtrl+F"
+        "windows": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
       }
     }
   },
@@ -24,3 +24,7 @@
     "<all_urls>" //gives access to all urls so i can access my files too
   ]
 }
+
+//take out whatever permissions aren't needed
+//add icon to manifest
+//add popup when a selected Text is added to your database
