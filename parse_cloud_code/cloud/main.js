@@ -16,8 +16,9 @@ Parse.Cloud.job("sendText", function(request, status) {
 	          	 var currentResult = queryResults[i];
 
 	          	 var currentTime = new Date().getTime();
-					//seconds in a day = 86400000
-				   if ((currentResult.timeStamp + 7200000) <= currentTime){
+	          	 
+					//# of seconds in a day = 86400000
+				   if ((currentResult.timeStamp + 86400000) <= currentTime){
 				    	currentResult.timesSent ++;
 				    	currentResult.timeStamp = currentTime;
 
