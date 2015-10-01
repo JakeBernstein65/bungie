@@ -24,10 +24,10 @@ Parse.Cloud.job("sendText", function(request, status) {
 
 				    	  Parse.Cloud.httpRequest({
 							  method: "POST",
-							  url: "https://ACb557922e1bb38ab5233c76d23df8a525:c4b9795ee9c63a342565d80d5f813cfd@api.twilio.com/2010-04-01/Accounts/ACb557922e1bb38ab5233c76d23df8a525/SMS/Messages.json",
+							  url: "https://ACCOUNT_SID:AUTH_TOKEN@api.twilio.com/2010-04-01/Accounts/ACCOUNT_SID/SMS/Messages.json",
 							  body: {
-							     From:"+15162462585",
-							     To: "+15163189812",
+							     From:"+Twilio_Number",
+							     To: "+Your_Number",
 							     Body: "-> \n" + currentResult.text
 							   }
 							});
@@ -37,8 +37,8 @@ Parse.Cloud.job("sendText", function(request, status) {
 					      url: "https://api.parse.com/1/classes/Text/" + currentResult.objectId, 
 					      body: currentResult,
 					      headers: {
-					        'X-Parse-Application-Id':'DQvjcrwLM1ctu4Wri3o3OEi5tLe8tvtqeCCU5egq',
-					        'X-Parse-REST-API-Key':'fDIml4hbYCWOj8B6v74ig7nNHqgESeGjB3XNXj3h',
+					        'X-Parse-Application-Id':'XXXXXXXXXX',
+					        'X-Parse-REST-API-Key':'YYYYYYYYYYYY',
 					        'Content-Type':'application/json'
 					       }
 					     });
@@ -49,8 +49,8 @@ Parse.Cloud.job("sendText", function(request, status) {
 						  	  method: 'Delete',
 						      url: "https://api.parse.com/1/classes/Text/" + currentResult.objectId,
 						      headers: {
-						        'X-Parse-Application-Id':'DQvjcrwLM1ctu4Wri3o3OEi5tLe8tvtqeCCU5egq',
-						        'X-Parse-REST-API-Key':'fDIml4hbYCWOj8B6v74ig7nNHqgESeGjB3XNXj3h'
+						        'X-Parse-Application-Id':'XXXXXXXXXX',
+						        'X-Parse-REST-API-Key':'YYYYYYYYYYYY'
 						       }
 						    }).then(function(response){
 					     	console.log(" \n \n Put response = " + JSON.stringify(response));
