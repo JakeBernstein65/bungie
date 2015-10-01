@@ -9,21 +9,22 @@ To specifiy what information you want "bounced" back to you, select the text you
 `Windows/Linux:` Ctrl + Alt + A
 `Mac:` Command + Alt + A  
 
-<img src="./README_images/selected.png" alt="image of text selection" width ="300" height:"150"/>
+<img src="./README_images/selected.png" alt="image of text selection" width ="300" height:"150"/>  
 
-This application stores the shopping list on Parse's backend, and uses Parse **REST calls** to update the database. Pubnub's **publisher/subscriber model** is used to allow multiple people to subscribe to the same shopping list, and Parse's Cloud Code is used to update every user's local list after the database is updated. Pubnub's **Presence** feature makes it possible to use this realtime application offline and have updates passed on to Parse's backend on reconnection to your network.  
+Once you select your informartion, a popup will appeare to let you know it was saved successfully.  
 
-Make sure to update the Pubnub and Parse keys with the keys associated with your own Pubnub and Parse accounts, or this won't work. for you.
+<img src="./README_images/popup.png" alt="image of text selection" width ="300" height:"150"/> 
 
+The information is then stored in [Parse's](https://parse.com/) backend through Parse's **REST API**. From here, Parse's Cloud Code will periodically call Twilio's Rest API and have it text you the information you wanted help remembering.
 
 ## Code Break Down of Important Files  
-### Local-Code  
+#### background.js 
 This folder contains the local code for the application. This is the `HTML`, `CSS`, and `JS` that you keep on your computer.  
 
-### Parse-Cloud-Code  
+### parse-cloud-code/cloud/main.js 
 This is the code that you should place inside of the **Cloud** Folder of your Parse Application Folder  
 
-i.e. `myParseapp/cloud/*`
+i.e. `parse_cloud_code/cloud/*`
 
 ## Side notes  
 
