@@ -6,7 +6,7 @@ The way Bungie works is by taking any information you find important in your bro
 
 To specifiy what information you want "bounced" back to you, select the text you want to learn, and then hit the appropriate hotkeys:  
 
-`Windows/Linux:` Ctrl + Alt + A
+`Windows/Linux:` Ctrl + Alt + A  
 `Mac:` Command + Alt + A  
 
 <img src="./README_images/selected.png" alt="image of text selection" width ="300" height:"150"/>  
@@ -17,11 +17,32 @@ Once you select your informartion, a popup will appeare to let you know it was s
 
 The information is then stored in [Parse's](https://parse.com/) backend through Parse's **REST API**. From here, Parse's Cloud Code will periodically call Twilio's Rest API and have it text you the information you wanted help remembering.
 
-## Code Break Down of Important Files  
-#### background.js 
-This folder contains the local code for the application. This is the `HTML`, `CSS`, and `JS` that you keep on your computer.  
+## Setup 
 
-### parse-cloud-code/cloud/main.js 
+Go to [Parse](https://parse.com/) and [Twilio](https://www.twilio.com/) and create accounts. You need the specific keys of your accounts to make Bungie work.  
+
+#### background.js  
+```js
+if(selectedText.text){
+          $.ajax({
+              type: 'POST',
+              headers: {
+                  'X-Parse-Application-Id': "DQvjcrwLM1ctu4Wri3o3OEi5tLe8tvtqeCCU5egq",
+                  'X-Parse-REST-API-Key': "fDIml4hbYCWOj8B6v74ig7nNHqgESeGjB3XNXj3h"
+              },
+              url: "https://api.parse.com/1/classes/Text",
+              data: JSON.stringify(selectedText)
+            }).then(function(response){
+              if(response.createdAt)
+                alert("Bungie saved your info. We'll bounce it back to your phone throughout the week.");
+            });
+  }
+```  
+Add your Parse Rest API key and your application ID to the post method.  
+
+#### content_script.js 
+
+#### parse-cloud-code/cloud/main.js 
 This is the code that you should place inside of the **Cloud** Folder of your Parse Application Folder  
 
 i.e. `parse_cloud_code/cloud/*`
