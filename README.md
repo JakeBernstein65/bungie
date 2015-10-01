@@ -13,7 +13,7 @@ To specifiy what information you want "bounced" back to you, select the text you
 
 Once you select your informartion, a popup will appeare to let you know it was saved successfully.  
 
-<img src="./README_images/popup.png" alt="image of text selection" width ="300" height:"150"/> 
+<img src="./README_images/popup.png" alt="image of popup" width ="300" height:"150"/> 
 
 The information is then stored in [Parse's](https://parse.com/) backend through Parse's **REST API**. From here, Parse's Cloud Code will periodically call Twilio's Rest API and have it text you the information you wanted help remembering.
 
