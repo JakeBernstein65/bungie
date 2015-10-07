@@ -53,7 +53,7 @@ if(selectedText.text){
   }
 ```  
 
-Go to your into your Parse APP and then into settings and keys. Add your Parse Rest API key and your application ID to the post method.  
+Go to your into your Parse App and then into settings and keys. Add your Parse Rest API key and your application ID to the post method.  
 
 #### parse-cloud-code/cloud/main.js  
 ```js
@@ -123,11 +123,3 @@ Parse.Cloud.job("sendText", function(request, status) {
 Add your Parse and Twilio keys as well as the proper telphone numbers from Twilio.  
 
 After this, you should be good to go.
-
-## Side notes  (add side notes section)
-
-An object gets an `objectId` when it is added to Parse and created, but not before. For this reason, if you create an item while offline, you can not delete or edit that specifc item until you regain connection. ObjectIds are required for those actions and that item won't have an objectId yet. You can still preform all other actions while offline.  
-
-You need to be disconnected from your network for at least twenty seconds for the application to recognize a **timeout** and that you are offline. This is based off of `heartbeat:` and `heartbeat_interval:` inside of `app.js`.  Change these values to changes the response time to your timeout.
-
-##Add your own API keys to parse and Twilio, and add your own numbers to Twilio
